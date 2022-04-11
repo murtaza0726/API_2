@@ -9,7 +9,7 @@ app = Flask(__name__)
 #basedir = os.path.abspath(os.path.dirname(__file__))
 
 # Database
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:murtazahaider@localhost/Demo'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://be32eb4083c64f:b41f6242@us-cdbr-east-05.cleardb.net/heroku_16c301709b71772'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 # Init db
