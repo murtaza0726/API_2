@@ -18,8 +18,8 @@ db = SQLAlchemy(app)
 # Init ma
 ma = Marshmallow(app)
 
-# Health Class/Model
-class Health(db.Model):
+# Product Class/Model
+class Product(db.Model):
     __tablename__ = 'ProjectDP'
     ID = db.Column(db.Integer, primary_key=True)
     Country = db.Column(db.String(50), unique=True)
@@ -50,20 +50,20 @@ class Health(db.Model):
         self.Takeout_places = Takeout_places
         self.Gym_membership = Gym_membership
 
-# Health Schema
-class HealthSchema(ma.Schema):
+# Product Schema
+class ProductSchema(ma.Schema):
   class Meta:
     fields = ('ID', 'Country', 'City', 'Sunshine', 'Cost_water', 'ObesityLevels_percent', 'Life_expectancy', 'Pollution_Index', 'Hours_worked', 'Happiness_levels', 'Outdoor_activities', 'Takeout_places', 'Gym_membership')
 
 # Init schema
-health_schema = HealthSchema()
-health_schema = HealthSchema(many=True)
+product_schema = ProductSchema()
+products_schema = ProductSchema(many=True)
 
 # Get Single Products
 @app.route('/api/client/v0.1/api/data/id/<id>', methods=['GET'])
-def get_health(id):
-  health = Health.query.get(id)
-  return health_schema.jsonify(health)
+def get_product(id):
+  product = Product.query.get(id)
+  return product_schema.jsonify(product)
 
 # Run Server
 if __name__ == '__main__':
