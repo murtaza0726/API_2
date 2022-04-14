@@ -60,7 +60,7 @@ health_schema = HealthSchema()
 health_schema = HealthSchema(many=True)
 
 # Get Single Products
-@app.route('api/client/v0.1/api/data/id/<id>', methods=['GET'])
+@app.route('/api/client/v0.1/api/data/id/<id>', methods=['GET'])
 def get_health(id):
   health = Health.query.get(id)
   return health_schema.jsonify(health)
